@@ -19,8 +19,7 @@ def get_tasks():
 def add_task():
     return render_template('addtask.html', categories=mongo.db.categories.find())
 
-def add_task():
-    return render_template('addtask.html', categories=mongo.db.categories.find())
+
 
 @app.route('/insert_task', methods=['POST'])
 def insert_task():
@@ -39,7 +38,7 @@ def edit_task(task_id):
 @app.route('/update_task/<task_id>', methods=["POST"])
 def update_task(task_id):
     tasks = mongo.db.tasks
-    tasks.update( {'_id': ObjectId(task_id)},
+    tasks.update({'_id': ObjectId(task_id)},
     {
         'task_name':request.form.get('task_name'),
         'category_name':request.form.get('category_name'),
