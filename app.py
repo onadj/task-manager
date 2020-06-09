@@ -17,7 +17,8 @@ def get_tasks():
 
 @app.route('/add_task')
 def add_task():
-    return render_template('addtask.html', categories=mongo.db.categories.find())
+    return render_template('addtask.html',
+                           tasks=mongo.db.categories.find())
 
 
 
@@ -46,6 +47,11 @@ def update_task(task_id):
         'due_date': request.form.get('due_date'),
         'is_urgent':request.form.get('is_urgent')
     })
+    return redirect(url_for('get_tasks'))
+    
+@app.route('/delete_task/<task_id>')
+def delete_task(task_id):
+    mongo.db.tasks.remove({'_id': ObjectId(task_id)})
     return redirect(url_for('get_tasks'))
 
 if __name__ == '__main__':
