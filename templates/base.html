@@ -11,8 +11,7 @@
     <header>
         <nav>
             <div class="nav-wrapper #00796b teal darken-2">
-                <a href="{{url_for('get_tasks')}}" class="brand-logo">Oliver's Task Manager for 
-add a category, add a task, edit a task, or delete it</a>
+                <a href="{{url_for('get_tasks')}}" class="brand-logo">Oliver's Task Manager</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{url_for('get_tasks')}}">Home</a></li>
@@ -27,7 +26,7 @@ add a category, add a task, edit a task, or delete it</a>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container #80cbc4 teal lighten-3">
         {% block content %} {% endblock %}
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
